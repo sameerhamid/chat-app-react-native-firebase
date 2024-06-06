@@ -11,5 +11,9 @@ export const LightTheme: ThemeModelItem = {
     text: Colors.TEXT,
     notification: Colors.NOTIFICATION,
     darkSlate: Colors.DARK_SLATE,
+    black: Colors.BLACK,
+    lightGrey: Colors.LIGHT_GREY,
+    teal: Colors.TEAL,
+    tealDisable: Colors.TEAL_DISABLE,
   },
 };

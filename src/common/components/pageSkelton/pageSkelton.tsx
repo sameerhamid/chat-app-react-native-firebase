@@ -1,9 +1,9 @@
 import {View, Text, FlexStyle, StyleProp, ViewStyle} from 'react-native';
 import React, {ReactNode} from 'react';
-import {ThemeModelItem} from '../model/theme/themeModel';
+import {ThemeModelItem} from '../../model/theme/themeModel';
 import {useTheme} from '@react-navigation/native';
 import stylesObj from './styles';
-import {scaleSize} from '../utils/scaleSheetUtils';
+import {scaleSize} from '../../utils/scaleSheetUtils';
 import {SafeAreaView} from 'react-native-safe-area-context';
 interface Props {
   visible?: boolean;

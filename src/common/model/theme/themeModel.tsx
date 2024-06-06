@@ -6,6 +6,10 @@ export class Colors {
   border: string;
   notification: string;
   darkSlate?: string;
+  black?: string;
+  lightGrey?: string;
+  teal?: string;
+  tealDisable?: string;
 
   constructor(
     primary: string,

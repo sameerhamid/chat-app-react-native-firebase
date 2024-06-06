@@ -1,6 +1,6 @@
 import {StyleSheet, ViewStyle} from 'react-native';
-import {Colors} from '../model/theme/themeModel';
-import {scaleSize} from '../utils/scaleSheetUtils';
+import {Colors} from '../../model/theme/themeModel';
+import {scaleSize} from '../../utils/scaleSheetUtils';
 
 export type PageSkeltonStyle = {
   safeAreaView: ViewStyle;
