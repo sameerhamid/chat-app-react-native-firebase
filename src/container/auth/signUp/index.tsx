@@ -26,6 +26,7 @@ const SignUp = () => {
           placeholder="Enter Name"
           style={styles.input}
           value={name}
+          placeholderTextColor={theme?.colors.placeholderTxt}
           onChangeText={text => setName(text)}
         />
         <TextInput
@@ -33,24 +34,28 @@ const SignUp = () => {
           style={styles.input}
           value={email}
           onChangeText={text => setEmail(text)}
+          placeholderTextColor={theme?.colors.placeholderTxt}
         />
         <TextInput
           placeholder="Enter Mobile"
           style={styles.input}
           value={mobile}
           onChangeText={text => setMobile(text)}
+          placeholderTextColor={theme?.colors.placeholderTxt}
         />
         <TextInput
           placeholder="Enter Password"
           style={styles.input}
           value={password}
           onChangeText={text => setPassword(text)}
+          placeholderTextColor={theme?.colors.placeholderTxt}
         />
         <TextInput
           placeholder="Confirm Passowrd"
           style={styles.input}
           value={confPassword}
           onChangeText={text => setConfPassword(text)}
+          placeholderTextColor={theme?.colors.placeholderTxt}
         />
       </View>
     );

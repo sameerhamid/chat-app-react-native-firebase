@@ -10,6 +10,7 @@ export class Colors {
   lightGrey?: string;
   teal?: string;
   tealDisable?: string;
+  placeholderTxt?: string;
 
   constructor(
     primary: string,

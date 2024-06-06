@@ -27,6 +27,7 @@ const styles = (colors?: Colors): SignUpStyles =>
       paddingHorizontal: scaleSize(10),
       borderRadius: scaleSize(6),
       borderColor: colors?.lightGrey,
+      height: scaleSize(50),
     },
   });
 
