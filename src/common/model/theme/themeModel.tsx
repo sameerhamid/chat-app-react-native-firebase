@@ -5,6 +5,7 @@ export class Colors {
   text: string;
   border: string;
   notification: string;
+  darkSlate?: string;
 
   constructor(
     primary: string,

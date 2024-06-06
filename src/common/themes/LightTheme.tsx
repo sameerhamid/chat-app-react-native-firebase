@@ -10,5 +10,6 @@ export const LightTheme: ThemeModelItem = {
     border: Colors.BORDER,
     text: Colors.TEXT,
     notification: Colors.NOTIFICATION,
+    darkSlate: Colors.DARK_SLATE,
   },
 };

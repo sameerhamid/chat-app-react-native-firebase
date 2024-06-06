@@ -6,20 +6,22 @@ import {navigationRef} from '../utils/NavigatorUtils';
 import {NavScreenTags} from '../constants/NavScreenTags';
 import SignUp from '../../container/auth/signUp';
 import {DarkTheme} from '../themes/DarkTheme';
-import Splash from '../../root/splash';
-// import {DarkTheme} from '../themes/DarkTheme';
+import {LightTheme} from '../themes/LightTheme';
+import {useColorScheme} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 const AppNavigation = () => {
-  console.log(DarkTheme);
+  const colorSheme = useColorScheme();
 
   return (
-    <NavigationContainer ref={navigationRef} theme={DarkTheme}>
+    <NavigationContainer
+      ref={navigationRef}
+      theme={colorSheme === 'dark' ? DarkTheme : LightTheme}>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name={NavScreenTags.SPLASH_SCREEN} component={Splash} />
+        {/* <Stack.Screen name={NavScreenTags.SPLASH_SCREEN} component={Splash} /> */}
         <Stack.Screen name={NavScreenTags.LOGIN_SCREEEN} component={Login} />
         <Stack.Screen name={NavScreenTags.SIGNUP_SCREEN} component={SignUp} />
       </Stack.Navigator>

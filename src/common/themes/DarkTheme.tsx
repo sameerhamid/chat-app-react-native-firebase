@@ -10,5 +10,6 @@ export const DarkTheme: ThemeModelItem = {
     text: Colors.TEXT,
     border: Colors.BORDER,
     notification: Colors.NOTIFICATION,
+    darkSlate: Colors.DARK_SLATE,
   },
 };

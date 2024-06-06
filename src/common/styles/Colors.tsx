@@ -5,6 +5,7 @@ const Colors = {
   TEXT: 'black',
   BORDER: 'black',
   NOTIFICATION: 'grey',
+  DARK_SLATE: '#e6e5e3',
 };
 
 export default Colors;

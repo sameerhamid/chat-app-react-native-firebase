@@ -14,7 +14,7 @@ const styles = (
   StyleSheet.create<PageSkeltonStyle>({
     safeAreaView: {
       flex: 1,
-      backgroundColor: colors?.notification,
+      backgroundColor: colors?.darkSlate,
       paddingBottom: isPaddingFromBottom ? scaleSize(10) : 0,
     },
     pageVw: {

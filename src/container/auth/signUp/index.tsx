@@ -1,11 +1,12 @@
 import {View, Text} from 'react-native';
 import React from 'react';
+import PageSkelton from '../../../common/components/pageSkelton';
 
 const SignUp = () => {
   return (
-    <View>
+    <PageSkelton>
       <Text>SignUp</Text>
-    </View>
+    </PageSkelton>
   );
 };
 
