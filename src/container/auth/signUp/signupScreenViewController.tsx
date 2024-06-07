@@ -7,6 +7,9 @@ import stylesObj, {SignUpStyleTypes} from './styles';
 import {Dispatch, SetStateAction, useState} from 'react';
 import {navigate} from '../../../common/utils/NavigatorUtils';
 import {NavScreenTags} from '../../../common/constants/NavScreenTags';
+import firestore from '@react-native-firebase/firestore';
+import uuid from 'react-native-uuid';
+import {Alert} from 'react-native';
 interface SignupScreenViewControllerTypes {
   handleSignUpPress: () => void;
   styles: SignUpStyleTypes;
@@ -42,7 +45,52 @@ const useSignupScreenViewController = (): SignupScreenViewControllerTypes => {
 
   // ========================= Logic handlers ==================
 
-  const handleSignUpPress = (): void => {};
+  const isValidData = (): boolean => {
+    let isValid = true;
+    if (name === '' || name === null || name === undefined) {
+      isValid = false;
+    }
+    if (email === '' || email === null || email === undefined) {
+      isValid = false;
+    }
+    if (mobile === '' || mobile === null || mobile === undefined) {
+      isValid = false;
+    }
+    if (password === '' || password === null || password === undefined) {
+      isValid = false;
+    }
+    if (password !== confPassword) {
+      isValid = false;
+    }
+    return isValid;
+  };
+
+  const handleSignUpPress = (): void => {
+    const userId = uuid.v4();
+
+    if (isValidData()) {
+      firestore()
+        .collection('users')
+        .doc(userId as string)
+        .set({
+          name: name,
+          email: email,
+          mobile: mobile,
+          password: password,
+          userId: userId,
+        })
+        .then(res => {
+          Alert.alert(`Success>>${res}`);
+          console.log('user created ', res);
+        })
+        .catch(err => {
+          Alert.alert(`Error>${err}`);
+          console.log('Error ', err);
+        });
+    } else {
+      Alert.alert('Please enter valid data');
+    }
+  };
 
   /**
    * navigate to login screen

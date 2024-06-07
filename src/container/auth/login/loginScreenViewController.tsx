@@ -7,6 +7,10 @@ import stylesObj, {LoginStyleTypes} from './styles';
 import {Dispatch, SetStateAction, useState} from 'react';
 import {navigate} from '../../../common/utils/NavigatorUtils';
 import {NavScreenTags} from '../../../common/constants/NavScreenTags';
+import firestore, {
+  FirebaseFirestoreTypes,
+} from '@react-native-firebase/firestore';
+import {Alert} from 'react-native';
 interface SignupScreenViewControllerTypes {
   handleLoginPress: () => void;
   styles: LoginStyleTypes;
@@ -33,7 +37,27 @@ const useLoginScreenViewController = (): SignupScreenViewControllerTypes => {
 
   // ========================= Logic handlers ==================
 
-  const handleLoginPress = (): void => {};
+  const handleLoginPress = (): void => {
+    firestore()
+      .collection('users')
+      .where('email', '==', email)
+      .get()
+      .then(
+        (
+          res: FirebaseFirestoreTypes.QuerySnapshot<FirebaseFirestoreTypes.DocumentData>,
+        ) => {
+          if (res.docs) {
+            console.log('----called in if------');
+
+            console.log(res.docs[0].data());
+          }
+        },
+      )
+      .catch(err => {
+        console.log(err);
+        Alert.alert('User not found');
+      });
+  };
 
   /**
    * navigate to login screen
