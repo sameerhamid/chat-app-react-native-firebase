@@ -9,6 +9,7 @@ import {DarkTheme} from '../themes/DarkTheme';
 import {LightTheme} from '../themes/LightTheme';
 import {useColorScheme} from 'react-native';
 import Splash from '../../container/root/splash';
+import HomeScreen from '../../container/home/homeScreen';
 
 const Stack = createNativeStackNavigator();
 const AppNavigation = () => {
@@ -25,6 +26,7 @@ const AppNavigation = () => {
         <Stack.Screen name={NavScreenTags.SPLASH_SCREEN} component={Splash} />
         <Stack.Screen name={NavScreenTags.LOGIN_SCREEEN} component={Login} />
         <Stack.Screen name={NavScreenTags.SIGNUP_SCREEN} component={SignUp} />
+        <Stack.Screen name={NavScreenTags.HOME_SCREEN} component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

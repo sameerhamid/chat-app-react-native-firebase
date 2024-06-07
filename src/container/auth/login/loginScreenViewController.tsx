@@ -4,13 +4,16 @@ import textStyles, {
   TextStylesTypes,
 } from '../../../common/components/custonText/textStyles';
 import stylesObj, {LoginStyleTypes} from './styles';
-import {Dispatch, SetStateAction, useState} from 'react';
+import {Dispatch, SetStateAction, useEffect, useRef, useState} from 'react';
 import {navigate} from '../../../common/utils/NavigatorUtils';
 import {NavScreenTags} from '../../../common/constants/NavScreenTags';
 import firestore, {
   FirebaseFirestoreTypes,
 } from '@react-native-firebase/firestore';
 import {Alert} from 'react-native';
+import {AuthModel} from '../../../common/model/auth/authModel';
+import LocalStorageUtils from '../../../common/utils/LocalStorageUtils';
+import {LocalStorageKeys} from '../../../common/utils/LocalStorageKeys';
 interface SignupScreenViewControllerTypes {
   handleLoginPress: () => void;
   styles: LoginStyleTypes;
@@ -34,8 +37,20 @@ const useLoginScreenViewController = (): SignupScreenViewControllerTypes => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isSecrueTextEntry, seIsSecureTextEntry] = useState<boolean>(true);
+  const userDetailsRef = useRef<AuthModel | undefined | void>();
 
   // ========================= Logic handlers ==================
+
+  const getUserDetialsFromLocalStorage = async (): Promise<void> => {
+    const userDetials = await LocalStorageUtils.getItem(
+      LocalStorageKeys.USER_DETAILS,
+    );
+    userDetailsRef.current = userDetials;
+  };
+
+  useEffect(() => {
+    getUserDetialsFromLocalStorage();
+  }, []);
 
   const handleLoginPress = (): void => {
     firestore()

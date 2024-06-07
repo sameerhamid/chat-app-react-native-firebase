@@ -10,6 +10,9 @@ import {NavScreenTags} from '../../../common/constants/NavScreenTags';
 import firestore from '@react-native-firebase/firestore';
 import uuid from 'react-native-uuid';
 import {Alert} from 'react-native';
+import LocalStorageUtils from '../../../common/utils/LocalStorageUtils';
+import {LocalStorageKeys} from '../../../common/utils/LocalStorageKeys';
+import {AuthModel} from '../../../common/model/auth/authModel';
 interface SignupScreenViewControllerTypes {
   handleSignUpPress: () => void;
   styles: SignUpStyleTypes;
@@ -79,8 +82,22 @@ const useSignupScreenViewController = (): SignupScreenViewControllerTypes => {
           password: password,
           userId: userId,
         })
-        .then(res => {
-          Alert.alert(`Success>>${res}`);
+        .then(async res => {
+          Alert.alert(`User registerd successful`);
+          const userDetials: AuthModel = {
+            name,
+            email,
+            mobile,
+            password,
+            userId: userId as string,
+          };
+          await LocalStorageUtils.setItem(LocalStorageKeys.USER_DETAILS, {
+            name,
+            email,
+            mobile,
+            password,
+            userId,
+          });
           console.log('user created ', res);
         })
         .catch(err => {

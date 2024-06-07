@@ -7,4 +7,5 @@ export const NavScreenTags = {
 
   LOGIN_SCREEEN: 'Login',
   SIGNUP_SCREEN: 'SignUp',
+  HOME_SCREEN: 'Home',
 };

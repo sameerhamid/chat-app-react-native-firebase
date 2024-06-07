@@ -28,7 +28,7 @@ const Login = () => {
       <View style={styles.inputCont}>
         <TextInput
           placeholder="Enter Email"
-          style={styles.input}
+          style={[styles.input, textStyle.black16]}
           value={email}
           onChangeText={text => setEmail(text)}
           placeholderTextColor={theme?.colors.placeholderTxt}
@@ -38,7 +38,7 @@ const Login = () => {
           <TextInput
             secureTextEntry={isSecrueTextEntry}
             placeholder="Enter Password"
-            style={styles.input}
+            style={[styles.input, textStyle.black16]}
             value={password}
             onChangeText={text => setPassword(text)}
             placeholderTextColor={theme?.colors.placeholderTxt}

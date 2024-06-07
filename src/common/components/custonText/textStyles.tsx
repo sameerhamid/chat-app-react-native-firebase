@@ -6,6 +6,7 @@ export type TextStylesTypes = {
   bold16: TextStyle;
   blackBold22: TextStyle;
   whiteBold20: TextStyle;
+  black16: TextStyle;
 };
 
 const textStyles = (colors?: Colors): TextStylesTypes =>
@@ -23,6 +24,10 @@ const textStyles = (colors?: Colors): TextStylesTypes =>
       color: colors?.primary,
       fontSize: 20,
       fontWeight: 'bold',
+    },
+    black16: {
+      fontSize: 18,
+      color: colors?.black,
     },
   });
 

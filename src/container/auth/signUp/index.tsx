@@ -34,21 +34,21 @@ const SignUp = () => {
       <View style={styles.inputCont}>
         <TextInput
           placeholder="Enter Name"
-          style={styles.input}
+          style={[styles.input, textStyle.black16]}
           value={name}
           placeholderTextColor={theme?.colors.placeholderTxt}
           onChangeText={text => setName(text)}
         />
         <TextInput
           placeholder="Enter Email"
-          style={styles.input}
+          style={[styles.input, textStyle.black16]}
           value={email}
           onChangeText={text => setEmail(text)}
           placeholderTextColor={theme?.colors.placeholderTxt}
         />
         <TextInput
           placeholder="Enter Mobile"
-          style={styles.input}
+          style={[styles.input, textStyle.black16]}
           value={mobile}
           onChangeText={text => setMobile(text)}
           placeholderTextColor={theme?.colors.placeholderTxt}
@@ -57,7 +57,7 @@ const SignUp = () => {
           <TextInput
             secureTextEntry={isSecrueTextEntry}
             placeholder="Enter Password"
-            style={styles.input}
+            style={[styles.input, textStyle.black16]}
             value={password}
             onChangeText={text => setPassword(text)}
             placeholderTextColor={theme?.colors.placeholderTxt}
@@ -75,7 +75,7 @@ const SignUp = () => {
           <TextInput
             secureTextEntry={isSecrueTextEntry}
             placeholder="Confirm Passowrd"
-            style={styles.input}
+            style={[styles.input, textStyle.black16]}
             value={confPassword}
             onChangeText={text => setConfPassword(text)}
             placeholderTextColor={theme?.colors.placeholderTxt}
