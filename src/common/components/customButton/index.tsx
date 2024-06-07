@@ -1,4 +1,9 @@
-import {TouchableOpacity, GestureResponderEvent, ViewStyle} from 'react-native';
+import {
+  TouchableOpacity,
+  GestureResponderEvent,
+  ViewStyle,
+  TextStyle,
+} from 'react-native';
 import React from 'react';
 import CustomText from '../custonText';
 import {BorderType} from '../../constants/enums';
@@ -19,6 +24,7 @@ interface Props {
   borderRadious?: number;
   isCompleteRadiusButton?: boolean;
   isBigText?: boolean;
+  btnTextStyles?: TextStyle;
 }
 
 const defaultProps: Props = {
@@ -32,6 +38,7 @@ const defaultProps: Props = {
   borderRadious: undefined,
   isCompleteRadiusButton: false,
   isBigText: false,
+  btnTextStyles: {},
 };
 
 const CustomButton = (props: typeof defaultProps) => {
@@ -47,6 +54,7 @@ const CustomButton = (props: typeof defaultProps) => {
     borderRadious,
     isCompleteRadiusButton,
     isBigText,
+    btnTextStyles,
   } = props;
   const theme: ThemeModelItem = useTheme();
   const textStyle = textStyles(theme?.colors);
@@ -59,7 +67,7 @@ const CustomButton = (props: typeof defaultProps) => {
       <CustomText
         text={title}
         txtSize={textSize}
-        textStyle={textStyle.whiteBold20}
+        textStyle={{...textStyle.whiteBold20, ...btnTextStyles}}
       />
     </TouchableOpacity>
   );

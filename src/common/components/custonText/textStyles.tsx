@@ -2,14 +2,14 @@ import {StyleSheet, TextStyle} from 'react-native';
 import {Colors} from '../../model/theme/themeModel';
 import {scaleFontSize} from '../../utils/scaleSheetUtils';
 
-export type TextStyles = {
+export type TextStylesTypes = {
   bold16: TextStyle;
   blackBold22: TextStyle;
   whiteBold20: TextStyle;
 };
 
-const textStyles = (colors?: Colors): TextStyles =>
-  StyleSheet.create<TextStyles>({
+const textStyles = (colors?: Colors): TextStylesTypes =>
+  StyleSheet.create<TextStylesTypes>({
     bold16: {
       fontWeight: 'bold',
       fontSize: scaleFontSize(16),

@@ -1,24 +1,34 @@
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
-import React, {useState} from 'react';
+import {View, TextInput, Image, TouchableOpacity} from 'react-native';
+import React from 'react';
 import PageSkelton from '../../../common/components/pageSkelton/pageSkelton';
-import stylesObj from './styles';
-import {ThemeModelItem} from '../../../common/model/theme/themeModel';
-import {useTheme} from '@react-navigation/native';
-import textStyles from '../../../common/components/custonText/textStyles';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import CustomText from '../../../common/components/custonText';
 import CustomButton from '../../../common/components/customButton';
 import Spacer from '../../../common/components/utility/Spacer';
 import {scaleSize} from '../../../common/utils/scaleSheetUtils';
+import useSignupScreenViewController from './signupScreenViewController';
+import {Images} from '../../../common/constants/images';
 const SignUp = () => {
-  const theme: ThemeModelItem = useTheme();
-  const styles = stylesObj(theme?.colors);
-  const textStyle = textStyles(theme?.colors);
-  const [name, setName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [mobile, setMobile] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [confPassword, setConfPassword] = useState<string>('');
+  const {
+    handleSignUpPress,
+    textStyle,
+    styles,
+    theme,
+    name,
+    setName,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    mobile,
+    setMobile,
+    confPassword,
+    setConfPassword,
+    handleOrLoginPress,
+    isSecrueTextEntry,
+    handlEyeIconPress,
+  } = useSignupScreenViewController();
+
   const renderInputs = () => {
     return (
       <View style={styles.inputCont}>
@@ -43,26 +53,49 @@ const SignUp = () => {
           onChangeText={text => setMobile(text)}
           placeholderTextColor={theme?.colors.placeholderTxt}
         />
-        <TextInput
-          placeholder="Enter Password"
-          style={styles.input}
-          value={password}
-          onChangeText={text => setPassword(text)}
-          placeholderTextColor={theme?.colors.placeholderTxt}
-        />
-        <TextInput
-          placeholder="Confirm Passowrd"
-          style={styles.input}
-          value={confPassword}
-          onChangeText={text => setConfPassword(text)}
-          placeholderTextColor={theme?.colors.placeholderTxt}
-        />
+        <View style={styles.inputItemContainer}>
+          <TextInput
+            secureTextEntry={isSecrueTextEntry}
+            placeholder="Enter Password"
+            style={styles.input}
+            value={password}
+            onChangeText={text => setPassword(text)}
+            placeholderTextColor={theme?.colors.placeholderTxt}
+          />
+          <TouchableOpacity
+            style={styles.eyeIconCont}
+            onPress={handlEyeIconPress}>
+            <Image
+              source={isSecrueTextEntry ? Images.EYE : Images.HIDE_EYE}
+              style={styles.eyeIcon}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.inputItemContainer}>
+          <TextInput
+            secureTextEntry={isSecrueTextEntry}
+            placeholder="Confirm Passowrd"
+            style={styles.input}
+            value={confPassword}
+            onChangeText={text => setConfPassword(text)}
+            placeholderTextColor={theme?.colors.placeholderTxt}
+          />
+
+          <TouchableOpacity
+            style={styles.eyeIconCont}
+            onPress={handlEyeIconPress}>
+            <Image
+              source={isSecrueTextEntry ? Images.EYE : Images.HIDE_EYE}
+              style={styles.eyeIcon}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   };
 
-  const renderButton = (): React.ReactElement => {
-    return <CustomButton title="SignUp" />;
+  const renderSignUpButton = (): React.ReactElement => {
+    return <CustomButton title="SignUp" onPress={handleSignUpPress} />;
   };
 
   return (
@@ -71,10 +104,17 @@ const SignUp = () => {
         <View style={styles.headerCont}>
           <CustomText text="Singup" textStyle={textStyle.blackBold22} />
         </View>
-
+        <Spacer height={scaleSize(20)} />
         {renderInputs()}
         <Spacer height={scaleSize(20)} />
-        {renderButton()}
+        {renderSignUpButton()}
+        <Spacer height={scaleSize(10)} />
+        <CustomButton
+          onPress={handleOrLoginPress}
+          title="Or Login"
+          btnStyle={styles.orLoginCont}
+          btnTextStyles={textStyle.blackBold22}
+        />
       </KeyboardAwareScrollView>
     </PageSkelton>
   );

@@ -2,7 +2,7 @@ import {ImageStyle, StyleSheet, ViewStyle} from 'react-native';
 import {Colors} from '../../../common/model/theme/themeModel';
 import {scaleSize} from '../../../common/utils/scaleSheetUtils';
 
-export type SignUpStyleTypes = {
+export type LoginStyleTypes = {
   headerCont: ViewStyle;
   input: ViewStyle;
   inputCont: ViewStyle;
@@ -13,8 +13,8 @@ export type SignUpStyleTypes = {
   inputItemContainer: ViewStyle;
 };
 
-const styles = (colors?: Colors): SignUpStyleTypes =>
-  StyleSheet.create<SignUpStyleTypes>({
+const styles = (colors?: Colors): LoginStyleTypes =>
+  StyleSheet.create<LoginStyleTypes>({
     headerCont: {
       alignItems: 'center',
     },
