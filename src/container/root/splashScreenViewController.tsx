@@ -28,16 +28,18 @@ const useSplashScreenViewController = (): SpalshScreenVeiwControllerTypes => {
             (
               res: FirebaseFirestoreTypes.QuerySnapshot<FirebaseFirestoreTypes.DocumentData>,
             ) => {
-              if (res.docs) {
+              if (res.docs.length > 0) {
                 replace(NavScreenTags.HOME_SCREEN);
+              } else {
+                replace(NavScreenTags.LOGIN_SCREEEN);
               }
             },
           )
           .catch(err => {
-            console.log(err);
+            replace(NavScreenTags.LOGIN_SCREEEN);
           });
       } else {
-        navigate(NavScreenTags.LOGIN_SCREEEN);
+        replace(NavScreenTags.LOGIN_SCREEEN);
       }
     }, 2000);
   }, []);

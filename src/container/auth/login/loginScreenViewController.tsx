@@ -5,7 +5,7 @@ import textStyles, {
 } from '../../../common/components/custonText/textStyles';
 import stylesObj, {LoginStyleTypes} from './styles';
 import {Dispatch, SetStateAction, useEffect, useRef, useState} from 'react';
-import {navigate} from '../../../common/utils/NavigatorUtils';
+import {navigate, replace} from '../../../common/utils/NavigatorUtils';
 import {NavScreenTags} from '../../../common/constants/NavScreenTags';
 import firestore, {
   FirebaseFirestoreTypes,
@@ -52,23 +52,56 @@ const useLoginScreenViewController = (): SignupScreenViewControllerTypes => {
     getUserDetialsFromLocalStorage();
   }, []);
 
+  const isValidData = (): boolean => {
+    let isValid = true;
+    if (email === '' || email === null || email === undefined) {
+      isValid = false;
+    }
+    if (password === '' || password === null || password === undefined) {
+      isValid = false;
+    }
+    return isValid;
+  };
+
   const handleLoginPress = (): void => {
-    firestore()
-      .collection('users')
-      .where('email', '==', email)
-      .get()
-      .then(
-        (
-          res: FirebaseFirestoreTypes.QuerySnapshot<FirebaseFirestoreTypes.DocumentData>,
-        ) => {
-          if (res.docs) {
-          }
-        },
-      )
-      .catch(err => {
-        console.log(err);
-        Alert.alert('User not found');
-      });
+    if (isValidData()) {
+      firestore()
+        .collection('users')
+        .where('email', '==', email)
+        .get()
+        .then(
+          async (
+            res: FirebaseFirestoreTypes.QuerySnapshot<FirebaseFirestoreTypes.DocumentData>,
+          ) => {
+            if (res.docs.length > 0) {
+              if (userDetailsRef.current) {
+                replace(NavScreenTags.HOME_SCREEN);
+              } else {
+                //@ts-ignore
+                const resPonseData: AuthModel = res.docs[0]._data;
+                if (password !== resPonseData.password) {
+                  Alert.alert('Wrong password');
+                } else {
+                  await LocalStorageUtils.setItem(
+                    LocalStorageKeys.USER_DETAILS,
+                    resPonseData,
+                  );
+                  replace(NavScreenTags.HOME_SCREEN);
+                }
+              }
+            } else {
+              Alert.alert(
+                'User not found,Please got to singup screen to register',
+              );
+            }
+          },
+        )
+        .catch(err => {
+          Alert.alert('User not found');
+        });
+    } else {
+      Alert.alert('Fields can not be empty');
+    }
   };
 
   /**

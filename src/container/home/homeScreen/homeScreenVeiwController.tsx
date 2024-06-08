@@ -77,14 +77,14 @@ const useHomeScreenVeiwController = (): HomeScreenVeiwControllerTypes => {
         (
           res: FirebaseFirestoreTypes.QuerySnapshot<FirebaseFirestoreTypes.DocumentData>,
         ) => {
-          if (res.docs.length) {
+          if (res.docs.length > 0) {
             res.docs.map(item => {
               tempData.push(item.data());
             });
 
             setUsers(tempData);
-            setLoading(false);
           }
+          setLoading(false);
         },
       )
       .catch(err => {

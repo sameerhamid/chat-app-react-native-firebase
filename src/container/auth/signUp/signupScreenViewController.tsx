@@ -7,7 +7,9 @@ import stylesObj, {SignUpStyleTypes} from './styles';
 import {Dispatch, SetStateAction, useState} from 'react';
 import {navigate, replace} from '../../../common/utils/NavigatorUtils';
 import {NavScreenTags} from '../../../common/constants/NavScreenTags';
-import firestore from '@react-native-firebase/firestore';
+import firestore, {
+  FirebaseFirestoreTypes,
+} from '@react-native-firebase/firestore';
 import uuid from 'react-native-uuid';
 import {Alert} from 'react-native';
 import LocalStorageUtils from '../../../common/utils/LocalStorageUtils';
@@ -74,32 +76,49 @@ const useSignupScreenViewController = (): SignupScreenViewControllerTypes => {
     if (isValidData()) {
       firestore()
         .collection('users')
-        .doc(userId as string)
-        .set({
-          name: name,
-          email: email,
-          mobile: mobile,
-          password: password,
-          userId: userId,
-        })
-        .then(async res => {
-          Alert.alert(`User registerd successful`);
-          const userDetials: AuthModel = {
-            name,
-            email,
-            mobile,
-            password,
-            userId: userId as string,
-          };
-          await LocalStorageUtils.setItem(
-            LocalStorageKeys.USER_DETAILS,
-            userDetials,
-          );
-          replace(NavScreenTags.HOME_SCREEN);
-        })
-        .catch(err => {
-          Alert.alert(`Error>${err}`);
-          console.log('Error ', err);
+        .where('email', '==', email)
+        .get()
+        .then(
+          async (
+            res: FirebaseFirestoreTypes.QuerySnapshot<FirebaseFirestoreTypes.DocumentData>,
+          ) => {
+            if (res.docs.length > 0) {
+              Alert.alert('Email already exist, please go to login screen');
+            } else {
+              firestore()
+                .collection('users')
+                .doc(userId as string)
+                .set({
+                  name: name,
+                  email: email,
+                  mobile: mobile,
+                  password: password,
+                  userId: userId,
+                })
+                .then(async res => {
+                  Alert.alert(`User registerd successful`);
+                  const userDetials: AuthModel = {
+                    name,
+                    email,
+                    mobile,
+                    password,
+                    userId: userId as string,
+                  };
+                  await LocalStorageUtils.setItem(
+                    LocalStorageKeys.USER_DETAILS,
+                    userDetials,
+                  );
+                  replace(NavScreenTags.HOME_SCREEN);
+                })
+                .catch(err => {
+                  Alert.alert(`Error>${err}`);
+                  console.log('Error ', err);
+                });
+            }
+          },
+        )
+        .catch(error => {
+          console.log(error);
         });
     } else {
       Alert.alert('Please enter valid data');

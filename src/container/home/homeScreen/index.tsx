@@ -14,9 +14,10 @@ import CustomText from '../../../common/components/custonText';
 import {AuthModel} from '../../../common/model/auth/authModel';
 import Settings from '../../../common/components/Settings';
 import Spacer from '../../../common/components/utility/Spacer';
-import {scaleSize} from '../../../common/utils/scaleSheetUtils';
+import {scaleFontSize, scaleSize} from '../../../common/utils/scaleSheetUtils';
 import {Images} from '../../../common/constants/images';
 import CustomActivityIndicator from '../../../common/components/customActivityIndicator';
+import {screenHeight, screenWidth} from '../../../common/constants/dimensions';
 const HomeScreen = () => {
   const {
     styles,
@@ -29,12 +30,28 @@ const HomeScreen = () => {
     handleChatPress,
   } = useHomeScreenVeiwController();
 
+  const renderEmptyView = (): React.ReactElement => {
+    return (
+      <View
+        style={{
+          width: '100%',
+          height: scaleSize(150),
+          backgroundColor: 'grey',
+          justifyContent: 'center',
+          alignItems: 'center',
+          borderRadius: scaleSize(20),
+          marginTop: scaleSize(30),
+        }}>
+        <CustomText text="No user found" txtSize={30} />
+      </View>
+    );
+  };
   const renderUsers = () => {
     return (
       <View>
         {loading ? (
           <CustomActivityIndicator visible={loading} />
-        ) : (
+        ) : users.length > 0 ? (
           <FlatList
             data={users}
             keyExtractor={user => user.email as string}
@@ -56,13 +73,11 @@ const HomeScreen = () => {
               );
             }}
           />
+        ) : (
+          renderEmptyView()
         )}
       </View>
     );
-  };
-
-  const renderHeader = (): React.ReactElement => {
-    return <View style={styles.headerCont}></View>;
   };
 
   return (

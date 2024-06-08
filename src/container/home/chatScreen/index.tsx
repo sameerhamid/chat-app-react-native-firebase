@@ -27,6 +27,7 @@ const ChatScreen = (props: Props) => {
 
   const [messages, setMessages] = useState<MessageType[]>([]);
 
+  //@ts-ignore
   useEffect(() => {
     const subscriber = firestore()
       .collection('chats')
