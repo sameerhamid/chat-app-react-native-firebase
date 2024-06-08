@@ -26,7 +26,7 @@ const textStyles = (colors?: Colors): TextStylesTypes =>
       fontWeight: 'bold',
     },
     black16: {
-      fontSize: 18,
+      fontSize: 16,
       color: colors?.black,
     },
   });

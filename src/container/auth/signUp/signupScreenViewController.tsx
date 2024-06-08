@@ -5,7 +5,7 @@ import textStyles, {
 } from '../../../common/components/custonText/textStyles';
 import stylesObj, {SignUpStyleTypes} from './styles';
 import {Dispatch, SetStateAction, useState} from 'react';
-import {navigate} from '../../../common/utils/NavigatorUtils';
+import {navigate, replace} from '../../../common/utils/NavigatorUtils';
 import {NavScreenTags} from '../../../common/constants/NavScreenTags';
 import firestore from '@react-native-firebase/firestore';
 import uuid from 'react-native-uuid';
@@ -91,14 +91,11 @@ const useSignupScreenViewController = (): SignupScreenViewControllerTypes => {
             password,
             userId: userId as string,
           };
-          await LocalStorageUtils.setItem(LocalStorageKeys.USER_DETAILS, {
-            name,
-            email,
-            mobile,
-            password,
-            userId,
-          });
-          console.log('user created ', res);
+          await LocalStorageUtils.setItem(
+            LocalStorageKeys.USER_DETAILS,
+            userDetials,
+          );
+          replace(NavScreenTags.HOME_SCREEN);
         })
         .catch(err => {
           Alert.alert(`Error>${err}`);

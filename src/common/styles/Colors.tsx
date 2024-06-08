@@ -11,6 +11,7 @@ const Colors = {
   TEAL: 'teal',
   TEAL_DISABLE: '#284f43',
   PLACEHOLDER_TEXT: '#2e2d2d',
+  TEAL_TRANSPARENT: 'rgba(79, 232, 175,0.2)',
 };
 
 export default Colors;

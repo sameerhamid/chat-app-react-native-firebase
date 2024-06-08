@@ -12,6 +12,7 @@ import Splash from '../../container/root/splash';
 import HomeScreen from '../../container/home/homeScreen';
 
 const Stack = createNativeStackNavigator();
+
 const AppNavigation = () => {
   const colorSheme = useColorScheme();
 

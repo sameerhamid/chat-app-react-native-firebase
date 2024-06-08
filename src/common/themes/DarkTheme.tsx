@@ -16,5 +16,6 @@ export const DarkTheme: ThemeModelItem = {
     teal: Colors.TEAL,
     tealDisable: Colors.TEAL_DISABLE,
     placeholderTxt: Colors.PLACEHOLDER_TEXT,
+    tealTransparent: Colors.TEAL_TRANSPARENT,
   },
 };

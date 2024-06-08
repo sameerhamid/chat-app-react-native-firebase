@@ -62,9 +62,6 @@ const useLoginScreenViewController = (): SignupScreenViewControllerTypes => {
           res: FirebaseFirestoreTypes.QuerySnapshot<FirebaseFirestoreTypes.DocumentData>,
         ) => {
           if (res.docs) {
-            console.log('----called in if------');
-
-            console.log(res.docs[0].data());
           }
         },
       )
