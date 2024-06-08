@@ -16,6 +16,7 @@ import Settings from '../../../common/components/Settings';
 import Spacer from '../../../common/components/utility/Spacer';
 import {scaleSize} from '../../../common/utils/scaleSheetUtils';
 import {Images} from '../../../common/constants/images';
+import CustomActivityIndicator from '../../../common/components/customActivityIndicator';
 const HomeScreen = () => {
   const {
     styles,
@@ -25,22 +26,25 @@ const HomeScreen = () => {
     handlOnTabPress,
     selectedTabIndex,
     textStyle,
+    handleChatPress,
   } = useHomeScreenVeiwController();
 
   const renderUsers = () => {
     return (
       <View>
         {loading ? (
-          <View>
-            <Text>Loading...</Text>
-          </View>
+          <CustomActivityIndicator visible={loading} />
         ) : (
           <FlatList
             data={users}
             keyExtractor={user => user.email as string}
             renderItem={({item, index}: {item: AuthModel; index: number}) => {
               return (
-                <TouchableOpacity style={styles.userCont}>
+                <TouchableOpacity
+                  style={styles.userCont}
+                  onPress={() => {
+                    handleChatPress(item);
+                  }}>
                   <View style={styles.profileImgeCon}>
                     <Image
                       source={Images.PROFILE}
@@ -63,7 +67,6 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {renderHeader()}
       <Spacer height={scaleSize(20)} />
       <View style={styles.mainContainer}>
         {selectedTabIndex === 0 ? renderUsers() : <Settings />}

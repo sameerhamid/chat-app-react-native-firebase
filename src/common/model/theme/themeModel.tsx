@@ -12,6 +12,7 @@ export class Colors {
   tealDisable?: string;
   placeholderTxt?: string;
   tealTransparent?: string;
+  transparent?: string;
 
   constructor(
     primary: string,

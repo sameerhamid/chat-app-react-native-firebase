@@ -11,4 +11,5 @@ export const NavScreenTags = {
   // home
   HOME_STACK: 'HomeStack',
   HOME_SCREEN: 'Home',
+  CHAT_SCREEN: 'Chat',
 };

@@ -14,6 +14,8 @@ import firestore, {
 import textStyles, {
   TextStylesTypes,
 } from '../../../common/components/custonText/textStyles';
+import {navigate} from '../../../common/utils/NavigatorUtils';
+import {NavScreenTags} from '../../../common/constants/NavScreenTags';
 
 // types
 interface HomeScreenVeiwControllerTypes {
@@ -24,6 +26,7 @@ interface HomeScreenVeiwControllerTypes {
   handlOnTabPress: (_index: number) => void;
   selectedTabIndex: number;
   textStyle: TextStylesTypes;
+  handleChatPress: (_user: AuthModel) => void;
 }
 
 const useHomeScreenVeiwController = (): HomeScreenVeiwControllerTypes => {
@@ -39,6 +42,7 @@ const useHomeScreenVeiwController = (): HomeScreenVeiwControllerTypes => {
   const [users, setUsers] = useState<AuthModel[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const textStyle = textStyles(theme?.colors);
+  const myIdRef = useRef<string | undefined>('');
 
   // ================= logic handlers====================
 
@@ -62,6 +66,7 @@ const useHomeScreenVeiwController = (): HomeScreenVeiwControllerTypes => {
     const userDetails: AuthModel = await LocalStorageUtils.getItem(
       LocalStorageKeys.USER_DETAILS,
     );
+    myIdRef.current = userDetails.userId;
     setLoading(true);
     setLoading(true);
     firestore()
@@ -88,6 +93,10 @@ const useHomeScreenVeiwController = (): HomeScreenVeiwControllerTypes => {
       });
   };
 
+  const handleChatPress = (user: AuthModel): void => {
+    navigate(NavScreenTags.CHAT_SCREEN, {...user, myId: myIdRef.current});
+  };
+
   // ================== Effects=================
 
   useEffect(() => {
@@ -102,6 +111,7 @@ const useHomeScreenVeiwController = (): HomeScreenVeiwControllerTypes => {
     handlOnTabPress,
     selectedTabIndex,
     textStyle,
+    handleChatPress,
   };
 };
 

@@ -10,6 +10,7 @@ import {LightTheme} from '../themes/LightTheme';
 import {useColorScheme} from 'react-native';
 import Splash from '../../container/root/splash';
 import HomeScreen from '../../container/home/homeScreen';
+import ChatScreen from '../../container/home/chatScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,7 +28,18 @@ const AppNavigation = () => {
         <Stack.Screen name={NavScreenTags.SPLASH_SCREEN} component={Splash} />
         <Stack.Screen name={NavScreenTags.LOGIN_SCREEEN} component={Login} />
         <Stack.Screen name={NavScreenTags.SIGNUP_SCREEN} component={SignUp} />
-        <Stack.Screen name={NavScreenTags.HOME_SCREEN} component={HomeScreen} />
+        <Stack.Screen
+          options={{headerShown: true}}
+          name={NavScreenTags.HOME_SCREEN}
+          component={HomeScreen}
+        />
+
+        <Stack.Screen
+          options={{headerShown: true}}
+          name={NavScreenTags.CHAT_SCREEN}
+          //@ts-ignore
+          component={ChatScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,7 +1,7 @@
 const Colors = {
   WHITE_COLOR: 'white',
   BACKGROUND: 'white',
-  CARD: 'teal',
+  CARD: 'grey',
   TEXT: 'black',
   BORDER: 'black',
   NOTIFICATION: 'grey',
@@ -12,6 +12,7 @@ const Colors = {
   TEAL_DISABLE: '#284f43',
   PLACEHOLDER_TEXT: '#2e2d2d',
   TEAL_TRANSPARENT: 'rgba(79, 232, 175,0.2)',
+  TRANSPARENT: 'rgba(161, 166, 162,1)',
 };
 
 export default Colors;
