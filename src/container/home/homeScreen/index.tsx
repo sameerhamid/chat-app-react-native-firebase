@@ -16,7 +16,6 @@ import Spacer from '../../../common/components/utility/Spacer';
 import {scaleSize} from '../../../common/utils/scaleSheetUtils';
 import {Images} from '../../../common/constants/images';
 import CustomActivityIndicator from '../../../common/components/customActivityIndicator';
-import {screenWidth} from '../../../common/constants/dimensions';
 
 const HomeScreen = () => {
   const {
@@ -37,6 +36,7 @@ const HomeScreen = () => {
       </View>
     );
   };
+
   const renderUsers = () => {
     return (
       <View>
