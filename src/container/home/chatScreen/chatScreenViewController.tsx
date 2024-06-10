@@ -26,6 +26,9 @@ interface ChatScreenViewControllerTypes {
   textStyle: TextStylesTypes;
   messages: MessageType[];
   onSend: () => void;
+  isOptionModelOpen: boolean;
+  handlOnOptionBtnPress: () => void;
+  handleBackdropPress: () => void;
 }
 
 const useChatScreenViewController = (
@@ -35,6 +38,7 @@ const useChatScreenViewController = (
   const styles = stylesObj(theme.colors);
   const textStyle = textStyles(theme.colors);
   const [messages, setMessages] = useState<MessageType[]>([]);
+  const [isOptionModelOpen, setIsOptionsModelOpen] = useState<boolean>(false);
 
   //@ts-ignore
   useEffect(() => {
@@ -60,6 +64,14 @@ const useChatScreenViewController = (
 
     return () => subscriber;
   }, []);
+
+  const handlOnOptionBtnPress = (): void => {
+    setIsOptionsModelOpen(true);
+  };
+
+  const handleBackdropPress = (): void => {
+    setIsOptionsModelOpen(false);
+  };
 
   const onSend = useCallback((messages = []) => {
     const msg: IMessage = messages[0];
@@ -97,7 +109,15 @@ const useChatScreenViewController = (
       .collection('messages')
       .add(myMsg);
   }, []);
-  return {styles, textStyle, messages, onSend};
+  return {
+    styles,
+    textStyle,
+    messages,
+    onSend,
+    handlOnOptionBtnPress,
+    isOptionModelOpen,
+    handleBackdropPress,
+  };
 };
 
 export default useChatScreenViewController;
