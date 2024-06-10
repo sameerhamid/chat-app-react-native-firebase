@@ -1,7 +1,6 @@
 import {
   View,
   SafeAreaView,
-  Text,
   TouchableOpacity,
   FlatList,
   Image,
@@ -14,10 +13,11 @@ import CustomText from '../../../common/components/custonText';
 import {AuthModel} from '../../../common/model/auth/authModel';
 import Settings from '../../../common/components/Settings';
 import Spacer from '../../../common/components/utility/Spacer';
-import {scaleFontSize, scaleSize} from '../../../common/utils/scaleSheetUtils';
+import {scaleSize} from '../../../common/utils/scaleSheetUtils';
 import {Images} from '../../../common/constants/images';
 import CustomActivityIndicator from '../../../common/components/customActivityIndicator';
-import {screenHeight, screenWidth} from '../../../common/constants/dimensions';
+import {screenWidth} from '../../../common/constants/dimensions';
+
 const HomeScreen = () => {
   const {
     styles,
@@ -32,16 +32,7 @@ const HomeScreen = () => {
 
   const renderEmptyView = (): React.ReactElement => {
     return (
-      <View
-        style={{
-          width: '100%',
-          height: scaleSize(150),
-          backgroundColor: 'grey',
-          justifyContent: 'center',
-          alignItems: 'center',
-          borderRadius: scaleSize(20),
-          marginTop: scaleSize(30),
-        }}>
+      <View style={styles.emptyVw}>
         <CustomText text="No user found" txtSize={30} />
       </View>
     );

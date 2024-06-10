@@ -35,7 +35,6 @@ const AppNavigation = () => {
         />
 
         <Stack.Screen
-          options={{headerShown: true}}
           name={NavScreenTags.CHAT_SCREEN}
           //@ts-ignore
           component={ChatScreen}

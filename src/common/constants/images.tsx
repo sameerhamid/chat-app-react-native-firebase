@@ -5,4 +5,6 @@ export const Images = {
   EYE: require('../assets/eye.png'),
   HIDE_EYE: require('../assets/hideEye.png'),
   PROFILE: require('../assets/profile.png'),
+  MORE_OPTIONS: require('../assets/more.png'),
+  BACK_ARROW: require('../assets/left-arrow.png'),
 };

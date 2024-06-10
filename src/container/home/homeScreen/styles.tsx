@@ -11,6 +11,7 @@ export type HomeScreenStyleTypes = {
   headerCont: ViewStyle;
   profileImage: ImageStyle;
   profileImgeCon: ViewStyle;
+  emptyVw: ViewStyle;
 };
 
 const styles = (colors?: Colors): HomeScreenStyleTypes =>
@@ -55,6 +56,15 @@ const styles = (colors?: Colors): HomeScreenStyleTypes =>
       borderRadius: scaleSize(60),
       justifyContent: 'center',
       alignItems: 'center',
+    },
+    emptyVw: {
+      width: '100%',
+      height: scaleSize(150),
+      backgroundColor: colors?.card,
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: scaleSize(20),
+      marginTop: scaleSize(30),
     },
   });
 

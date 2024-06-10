@@ -9,6 +9,12 @@ import {GiftedChat, IMessage} from 'react-native-gifted-chat';
 import firestore, {
   FirebaseFirestoreTypes,
 } from '@react-native-firebase/firestore';
+import {Image, SafeAreaView, TouchableOpacity, View} from 'react-native';
+import CustomActivityIndicator from '../../../common/components/customActivityIndicator';
+import {screenWidth} from '../../../common/constants/dimensions';
+import {scaleSize} from '../../../common/utils/scaleSheetUtils';
+import {Images} from '../../../common/constants/images';
+import CustomText from '../../../common/components/custonText';
 
 interface MessageType extends IMessage {
   sendBy?: string;
@@ -21,7 +27,7 @@ const ChatScreen = (props: Props) => {
   const {route} = props;
   //@ts-ignore
   const routParams: ChatScreenRouteParmasTypes = route.params;
-  const {} = useChatScreenViewController(
+  const {textStyle, styles} = useChatScreenViewController(
     routParams as ChatScreenRouteParmasTypes,
   );
 
@@ -89,16 +95,53 @@ const ChatScreen = (props: Props) => {
       .add(myMsg);
   }, []);
 
+  const renderChatHeader = (): React.ReactElement => {
+    return (
+      <View style={styles.headerContainer}>
+        <View style={styles.leftHeaderCont}>
+          <View style={styles.backAndProfile}>
+            {/* backarrow */}
+            <TouchableOpacity>
+              <Image source={Images.BACK_ARROW} style={styles.backBtn} />
+            </TouchableOpacity>
+
+            {/* profileImage  */}
+            <TouchableOpacity style={styles.profileCont}>
+              <Image source={Images.PROFILE} style={styles.profile} />
+            </TouchableOpacity>
+          </View>
+
+          {/* name of the user  */}
+
+          <View>
+            <CustomText text={routParams.name} />
+            <CustomText text="online" txtSize={10} />
+          </View>
+        </View>
+
+        {/* more options button  */}
+        <TouchableOpacity>
+          <Image source={Images.MORE_OPTIONS} style={styles.more} />
+        </TouchableOpacity>
+      </View>
+    );
+  };
   return (
-    <GiftedChat
-      textInputProps={{color: 'black'}}
-      messages={messages}
-      //@ts-ignore
-      onSend={messages => onSend(messages)}
-      user={{
-        _id: routParams?.myId,
-      }}
-    />
+    <SafeAreaView style={{flex: 1}}>
+      {renderChatHeader()}
+      <GiftedChat
+        textInputProps={{color: 'black'}}
+        messages={messages}
+        //@ts-ignore
+        onSend={messages => onSend(messages)}
+        user={{
+          _id: routParams?.myId,
+        }}
+        alwaysShowSend={true}
+        showUserAvatar
+        renderUsernameOnMessage
+      />
+    </SafeAreaView>
   );
 };
 

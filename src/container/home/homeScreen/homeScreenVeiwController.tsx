@@ -68,7 +68,7 @@ const useHomeScreenVeiwController = (): HomeScreenVeiwControllerTypes => {
     );
     myIdRef.current = userDetails.userId;
     setLoading(true);
-    setLoading(true);
+
     firestore()
       .collection('users')
       .where('email', '!=', userDetails.email)
