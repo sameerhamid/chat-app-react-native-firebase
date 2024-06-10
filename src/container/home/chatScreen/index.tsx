@@ -10,6 +10,7 @@ import {Image, SafeAreaView, TouchableOpacity, View} from 'react-native';
 
 import {Images} from '../../../common/constants/images';
 import CustomText from '../../../common/components/custonText';
+import {goBack} from '../../../common/utils/NavigatorUtils';
 
 interface Props {
   route: ChatScreenRouteParam;
@@ -29,7 +30,7 @@ const ChatScreen = (props: Props) => {
         <View style={styles.leftHeaderCont}>
           <View style={styles.backAndProfile}>
             {/* backarrow */}
-            <TouchableOpacity>
+            <TouchableOpacity onPress={goBack}>
               <Image source={Images.BACK_ARROW} style={styles.backBtn} />
             </TouchableOpacity>
 
