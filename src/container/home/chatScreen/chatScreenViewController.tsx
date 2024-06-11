@@ -10,11 +10,11 @@ import firestore, {
   FirebaseFirestoreTypes,
 } from '@react-native-firebase/firestore';
 export interface ChatScreenRouteParmasTypes {
-  name?: string;
+  name: string;
   email?: string;
   mobile?: string;
   password?: string;
-  userId?: string;
+  userId: string;
   myId: string;
 }
 interface MessageType extends IMessage {
@@ -29,6 +29,9 @@ interface ChatScreenViewControllerTypes {
   isOptionModelOpen: boolean;
   handlOnOptionBtnPress: () => void;
   handleBackdropPress: () => void;
+  isVideoCallModalVisible: boolean;
+  handlHangUp: () => void;
+  handleOpenVideoCallModal: () => void;
 }
 
 const useChatScreenViewController = (
@@ -39,6 +42,8 @@ const useChatScreenViewController = (
   const textStyle = textStyles(theme.colors);
   const [messages, setMessages] = useState<MessageType[]>([]);
   const [isOptionModelOpen, setIsOptionsModelOpen] = useState<boolean>(false);
+  const [isVideoCallModalVisible, setIsVideoCallModalVisible] =
+    useState<boolean>(false);
 
   //@ts-ignore
   useEffect(() => {
@@ -109,6 +114,13 @@ const useChatScreenViewController = (
       .collection('messages')
       .add(myMsg);
   }, []);
+
+  const handlHangUp = (): void => {
+    setIsVideoCallModalVisible(false);
+  };
+  const handleOpenVideoCallModal = (): void => {
+    setIsVideoCallModalVisible(true);
+  };
   return {
     styles,
     textStyle,
@@ -117,6 +129,9 @@ const useChatScreenViewController = (
     handlOnOptionBtnPress,
     isOptionModelOpen,
     handleBackdropPress,
+    isVideoCallModalVisible,
+    handlHangUp,
+    handleOpenVideoCallModal,
   };
 };
 

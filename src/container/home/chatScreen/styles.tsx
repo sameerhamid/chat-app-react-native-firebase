@@ -12,6 +12,8 @@ export type ChatScreenStyleTypes = {
   backBtn: ImageStyle;
   profile: ImageStyle;
   more: ImageStyle;
+  videoCall: ImageStyle;
+  rightHeaderContainer: ViewStyle;
 };
 
 const styles = (colors: Colors): ChatScreenStyleTypes =>
@@ -57,6 +59,16 @@ const styles = (colors: Colors): ChatScreenStyleTypes =>
     more: {
       width: scaleSize(40),
       height: scaleSize(40),
+    },
+    videoCall: {
+      width: scaleSize(30),
+      height: scaleSize(30),
+    },
+    rightHeaderContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      columnGap: scaleSize(20),
     },
   });
 

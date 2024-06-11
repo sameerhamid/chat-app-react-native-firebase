@@ -17,7 +17,6 @@ import {scaleSize} from '../../../common/utils/scaleSheetUtils';
 import {Images} from '../../../common/constants/images';
 import CustomActivityIndicator from '../../../common/components/customActivityIndicator';
 import CustomButton from '../../../common/components/customButton';
-import {screenWidth} from '../../../common/constants/dimensions';
 
 const HomeScreen = () => {
   const {

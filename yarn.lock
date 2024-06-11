@@ -2649,7 +2649,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/native-stack@npm:^6.9.26":
+"@react-navigation/native-stack@npm:^6.9.1, @react-navigation/native-stack@npm:^6.9.26":
   version: 6.9.26
   resolution: "@react-navigation/native-stack@npm:6.9.26"
   dependencies:
@@ -2665,7 +2665,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/native@npm:^6.1.17":
+"@react-navigation/native@npm:^6.0.13, @react-navigation/native@npm:^6.1.17":
   version: 6.1.17
   resolution: "@react-navigation/native@npm:6.1.17"
   dependencies:
@@ -3120,6 +3120,50 @@ __metadata:
   version: 1.2.0
   resolution: "@ungap/structured-clone@npm:1.2.0"
   checksum: 4f656b7b4672f2ce6e272f2427d8b0824ed11546a601d8d5412b9d7704e83db38a8d9f402ecdf2b9063fc164af842ad0ec4a55819f621ed7e7ea4d1efcc74524
+  languageName: node
+  linkType: hard
+
+"@zegocloud/zego-uikit-prebuilt-call-rn@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "@zegocloud/zego-uikit-prebuilt-call-rn@npm:5.0.1"
+  dependencies:
+    "@react-navigation/native": ^6.0.13
+    "@react-navigation/native-stack": ^6.9.1
+    react-native-safe-area-context: ^4.4.1
+    react-native-screens: ^3.18.2
+    react-native-sound: ^0.11.2
+  peerDependencies:
+    "@react-navigation/native": "*"
+    "@react-navigation/native-stack": "*"
+    "@zegocloud/zego-uikit-rn": ">=2.3.1"
+    react: "*"
+    react-delegate-component: "*"
+    react-native: "*"
+    react-native-encrypted-storage: "*"
+    react-native-keep-awake: "*"
+    react-native-safe-area-context: "*"
+    react-native-screens: "*"
+    react-native-sound: "*"
+  checksum: fb5d21c318b963d10a2c1da5d65b979a5c3989472eebce703285ecf04df468821737ded0d56d094211c19c0d5fcd990d3b40a049468cab90b4271b51c15e60c2
+  languageName: node
+  linkType: hard
+
+"@zegocloud/zego-uikit-rn@npm:^2.9.1":
+  version: 2.9.1
+  resolution: "@zegocloud/zego-uikit-rn@npm:2.9.1"
+  dependencies:
+    react-delegate-component: ^1.0.0
+    zego-express-engine-reactnative: 3.14.5
+    zego-zim-react-native: 2.12.1
+    zego-zpns-react-native: 2.5.0-alpha
+  peerDependencies:
+    react: "*"
+    react-delegate-component: "*"
+    react-native: "*"
+    zego-express-engine-reactnative: ^3.14.5
+    zego-zim-react-native: 2.12.1
+    zego-zpns-react-native: 2.5.0-alpha
+  checksum: c8b388483e7b53569437527737ea19e449befdd77236166e7052cc3b23e80bc6ff4b370868b99e698ca0fb6bfc8a5f33bbc121823179bd3a51f05f086da5dd86
   languageName: node
   linkType: hard
 
@@ -3822,22 +3866,29 @@ __metadata:
     "@react-navigation/native-stack": ^6.9.26
     "@types/react": ^18.2.6
     "@types/react-test-renderer": ^18.0.0
+    "@zegocloud/zego-uikit-prebuilt-call-rn": ^5.0.1
+    "@zegocloud/zego-uikit-rn": ^2.9.1
     babel-jest: ^29.6.3
     eslint: ^8.19.0
     jest: ^29.6.3
     prettier: 2.8.8
     react: 18.2.0
+    react-delegate-component: ^1.0.0
     react-native: 0.74.2
     react-native-device-info: ^11.1.0
+    react-native-encrypted-storage: ^4.0.3
     react-native-gifted-chat: ^2.4.0
+    react-native-keep-awake: 4.0.0
     react-native-keyboard-aware-scroll-view: ^0.9.5
     react-native-modal: ^13.0.1
     react-native-safe-area-context: ^4.10.4
     react-native-screens: ^3.31.1
+    react-native-sound: ^0.11.2
     react-native-splash-screen: ^3.3.0
     react-native-uuid: ^2.0.2
     react-test-renderer: 18.2.0
     typescript: 5.0.4
+    zego-express-engine-reactnative: 3.14.5
   languageName: unknown
   linkType: soft
 
@@ -8132,7 +8183,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.7.x, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.7.x, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -8196,6 +8247,17 @@ __metadata:
   version: 1.2.1
   resolution: "range-parser@npm:1.2.1"
   checksum: 0a268d4fea508661cf5743dfe3d5f47ce214fd6b7dec1de0da4d669dd4ef3d2144468ebe4179049eff253d9d27e719c88dae55be64f954e80135a0cada804ec9
+  languageName: node
+  linkType: hard
+
+"react-delegate-component@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "react-delegate-component@npm:1.0.0"
+  dependencies:
+    prop-types: ^15.6.0
+  peerDependencies:
+    react: ">=15"
+  checksum: 8880ed67883366cb6b2be522b8f8000fed0e1831d3748be994f8e2f189ff8a0f66733192046c08db986b1971ff1395ca59f2be82dff3331840e00d412dd16a71
   languageName: node
   linkType: hard
 
@@ -8264,6 +8326,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-encrypted-storage@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "react-native-encrypted-storage@npm:4.0.3"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 9d2999c58559f1e4f66d1baf2c3edeff96cf42027900850d94c6bbea24ac9715047ce69bf6e8a73b68aff4508cf35dd88ac494ad5905933286ef3b75cd123e30
+  languageName: node
+  linkType: hard
+
 "react-native-gifted-chat@npm:^2.4.0":
   version: 2.4.0
   resolution: "react-native-gifted-chat@npm:2.4.0"
@@ -8291,6 +8363,13 @@ __metadata:
   peerDependencies:
     react-native: ">=0.42.0"
   checksum: 024376646009a966e33e12fc2358751830818b0fb73b1c601a64eb5e490d2dc43eec23668991b985a8c412a84d087f20eb45bb9b593567c08b66e741b7bddda5
+  languageName: node
+  linkType: hard
+
+"react-native-keep-awake@npm:4.0.0":
+  version: 4.0.0
+  resolution: "react-native-keep-awake@npm:4.0.0"
+  checksum: b041c5c7c27e2ed7d97aafbea7e05b2676dd1ae712df6de4bb6076946d4ae76e65aa2e666748bfacc8959667ae9704787466d17d348cf79bb0b8c1b327c6a110
   languageName: node
   linkType: hard
 
@@ -8341,7 +8420,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-safe-area-context@npm:^4.10.4":
+"react-native-safe-area-context@npm:^4.10.4, react-native-safe-area-context@npm:^4.4.1":
   version: 4.10.4
   resolution: "react-native-safe-area-context@npm:4.10.4"
   peerDependencies:
@@ -8351,7 +8430,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-screens@npm:^3.31.1":
+"react-native-screens@npm:^3.18.2, react-native-screens@npm:^3.31.1":
   version: 3.31.1
   resolution: "react-native-screens@npm:3.31.1"
   dependencies:
@@ -8361,6 +8440,15 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 1fc61cf7a223b3ef1c8000e74416c8953561c5fa0861557da43659db62a640e37fb51fbdc35dae810a665881a7aa9eeaf1873e90f67404b4dda53a672464a7fe
+  languageName: node
+  linkType: hard
+
+"react-native-sound@npm:^0.11.2":
+  version: 0.11.2
+  resolution: "react-native-sound@npm:0.11.2"
+  peerDependencies:
+    react-native: ">=0.8.0"
+  checksum: d019de415c5f7bc8af51bc50adff7b9c307cb990aad3ea193933f89df743bbcdbfaa33c4a12bb1143a223137cea39f8b69baf5e1c29f77cf80476616bccc6f91
   languageName: node
   linkType: hard
 
@@ -10171,5 +10259,35 @@ __metadata:
   version: 0.1.0
   resolution: "yocto-queue@npm:0.1.0"
   checksum: f77b3d8d00310def622123df93d4ee654fc6a0096182af8bd60679ddcdfb3474c56c6c7190817c84a2785648cdee9d721c0154eb45698c62176c322fb46fc700
+  languageName: node
+  linkType: hard
+
+"zego-express-engine-reactnative@npm:3.14.5":
+  version: 3.14.5
+  resolution: "zego-express-engine-reactnative@npm:3.14.5"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 78e545757125fb13614ca50e2ddd8bcdda9207201e302b5ea4370b48842c8c516060246fc35a0e3c4d47dd8725bd617ceb74d41e13d92627510b9f371ea33e87
+  languageName: node
+  linkType: hard
+
+"zego-zim-react-native@npm:2.12.1":
+  version: 2.12.1
+  resolution: "zego-zim-react-native@npm:2.12.1"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 95f26af0eaf2dc8152e4d145f50bbf77e1b54b36137a809b778b28e3115eebf489c3eaba15dd4ed3050151bec36e9c7278c64f4c09ad89bb76edca9faea0d64b
+  languageName: node
+  linkType: hard
+
+"zego-zpns-react-native@npm:2.5.0-alpha":
+  version: 2.5.0-alpha
+  resolution: "zego-zpns-react-native@npm:2.5.0-alpha"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: a65518165dfadd0e8f2a04e6a07bd9b66b3be186eae8abfedfc26dffc913ea55a2d4f789f6613c4f7f88ca335ad32f99b9bc2d8eb9ce484cd3c5b5b6314d13ea
   languageName: node
   linkType: hard

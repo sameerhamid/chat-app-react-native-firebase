@@ -15,6 +15,7 @@ import ReactNativeModal from 'react-native-modal';
 import {scaleSize} from '../../../common/utils/scaleSheetUtils';
 import Colors from '../../../common/styles/Colors';
 import {screenHeight, screenWidth} from '../../../common/constants/dimensions';
+import CustomVideoCallModal from '../../../common/components/customVideoCallModal';
 
 interface Props {
   route: ChatScreenRouteParam;
@@ -31,6 +32,9 @@ const ChatScreen = (props: Props) => {
     isOptionModelOpen,
     handlOnOptionBtnPress,
     handleBackdropPress,
+    isVideoCallModalVisible,
+    handlHangUp,
+    handleOpenVideoCallModal,
   } = useChatScreenViewController(routParams as ChatScreenRouteParmasTypes);
 
   const showMoreOptionsSheet = (): React.ReactElement => {
@@ -95,9 +99,14 @@ const ChatScreen = (props: Props) => {
           </View>
         </View>
         {/* more options button  */}
-        <TouchableOpacity onPress={handlOnOptionBtnPress}>
-          <Image source={Images.MORE_OPTIONS} style={styles.more} />
-        </TouchableOpacity>
+        <View style={styles.rightHeaderContainer}>
+          <TouchableOpacity onPress={handleOpenVideoCallModal}>
+            <Image source={Images.VIDEO_CALL} style={styles.videoCall} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handlOnOptionBtnPress}>
+            <Image source={Images.MORE_OPTIONS} style={styles.more} />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   };
@@ -117,6 +126,14 @@ const ChatScreen = (props: Props) => {
         alwaysShowSend={true}
         showUserAvatar
         renderUsernameOnMessage
+      />
+
+      <CustomVideoCallModal
+        visible={isVideoCallModalVisible}
+        userId={routParams.myId}
+        userName={routParams.name}
+        callerId={routParams.userId}
+        handleOnHangupCallback={handlHangUp}
       />
     </SafeAreaView>
   );
