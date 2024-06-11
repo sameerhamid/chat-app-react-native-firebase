@@ -41,7 +41,7 @@ const HomeScreen = () => {
     );
   };
 
-  const renderUsers = () => {
+  const renderUsers = (): React.ReactElement => {
     return (
       <View>
         {loading ? (
