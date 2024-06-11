@@ -18,7 +18,7 @@ const styles = (colors: Colors): ChatScreenStyleTypes =>
     headerContainer: {
       width: screenWidth,
       height: scaleSize(70),
-      backgroundColor: colors.transparent,
+      backgroundColor: colors.whiteTransparent,
       alignItems: 'center',
       flexDirection: 'row',
       paddingHorizontal: scaleSize(10),

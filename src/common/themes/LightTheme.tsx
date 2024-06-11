@@ -18,5 +18,6 @@ export const LightTheme: ThemeModelItem = {
     placeholderTxt: Colors.PLACEHOLDER_TEXT,
     tealTransparent: Colors.TEAL_TRANSPARENT,
     transparent: Colors.TRANSPARENT,
+    whiteTransparent: Colors.WHITE_TRANSPARENT,
   },
 };

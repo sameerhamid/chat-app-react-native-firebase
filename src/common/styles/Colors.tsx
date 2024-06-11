@@ -13,6 +13,7 @@ const Colors = {
   PLACEHOLDER_TEXT: '#2e2d2d',
   TEAL_TRANSPARENT: 'rgba(79, 232, 175,0.2)',
   TRANSPARENT: 'rgba(161, 166, 162,1)',
+  WHITE_TRANSPARENT: 'rgba(243,235,241,0.09)',
 };
 
 export default Colors;
