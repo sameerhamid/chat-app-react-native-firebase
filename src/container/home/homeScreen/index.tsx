@@ -82,15 +82,15 @@ const HomeScreen = () => {
           <View style={styles.settingProfileImgeContainer}>
             <Image source={Images.PROFILE} style={styles.settingProfileImg} />
           </View>
-          <CustomText text={userDetails.name?.toUpperCase()} />
+          <CustomText text={userDetails.name?.toUpperCase() ?? 'Username'} />
         </View>
         <Spacer height={scaleSize(20)} />
         <View style={{marginHorizontal: scaleSize(20), rowGap: scaleSize(20)}}>
           <View style={styles.settingProfileDetails}>
-            <CustomText text={userDetails.email} />
+            <CustomText text={userDetails.email ?? 'User email'} />
           </View>
           <View style={styles.settingProfileDetails}>
-            <CustomText text={userDetails.mobile} />
+            <CustomText text={userDetails.mobile ?? 'User mobile number'} />
           </View>
         </View>
 

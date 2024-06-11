@@ -27,6 +27,7 @@ const Login = () => {
     return (
       <View style={styles.inputCont}>
         <TextInput
+          autoCapitalize="none"
           placeholder="Enter Email"
           style={[styles.input, textStyle.black16]}
           value={email}
@@ -37,6 +38,7 @@ const Login = () => {
 
         <View style={styles.inputItemContainer}>
           <TextInput
+            autoCapitalize="none"
             secureTextEntry={isSecrueTextEntry}
             placeholder="Enter Password"
             style={[styles.input, textStyle.black16]}

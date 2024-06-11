@@ -44,7 +44,7 @@ const useHomeScreenVeiwController = (): HomeScreenVeiwControllerTypes => {
   const [users, setUsers] = useState<AuthModel[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const textStyle = textStyles(theme?.colors);
-  const myIdRef = useRef<string | undefined>('');
+
   const [userDetails, setUserDetails] = useState<AuthModel>({});
 
   // ================= logic handlers====================
@@ -70,7 +70,7 @@ const useHomeScreenVeiwController = (): HomeScreenVeiwControllerTypes => {
       LocalStorageKeys.USER_DETAILS,
     );
     setUserDetails(userDetails);
-    myIdRef.current = userDetails.userId;
+
     setLoading(true);
 
     firestore()
@@ -98,7 +98,7 @@ const useHomeScreenVeiwController = (): HomeScreenVeiwControllerTypes => {
   };
 
   const handleChatPress = (user: AuthModel): void => {
-    navigate(NavScreenTags.CHAT_SCREEN, {...user, myId: myIdRef.current});
+    navigate(NavScreenTags.CHAT_SCREEN, {...user, myId: userDetails.userId});
   };
 
   const handleLogout = async (): Promise<void> => {

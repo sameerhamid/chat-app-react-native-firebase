@@ -33,6 +33,7 @@ const SignUp = () => {
     return (
       <View style={styles.inputCont}>
         <TextInput
+          autoCapitalize="none"
           placeholder="Enter Name"
           style={[styles.input, textStyle.black16]}
           value={name}
@@ -40,6 +41,7 @@ const SignUp = () => {
           onChangeText={text => setName(text)}
         />
         <TextInput
+          autoCapitalize="none"
           placeholder="Enter Email"
           style={[styles.input, textStyle.black16]}
           value={email}
@@ -58,6 +60,7 @@ const SignUp = () => {
         />
         <View style={styles.inputItemContainer}>
           <TextInput
+            autoCapitalize="none"
             secureTextEntry={isSecrueTextEntry}
             placeholder="Enter Password"
             style={[styles.input, textStyle.black16]}
@@ -76,6 +79,7 @@ const SignUp = () => {
         </View>
         <View style={styles.inputItemContainer}>
           <TextInput
+            autoCapitalize="none"
             secureTextEntry={isSecrueTextEntry}
             placeholder="Confirm Passowrd"
             style={[styles.input, textStyle.black16]}
