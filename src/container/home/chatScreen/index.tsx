@@ -61,6 +61,7 @@ const ChatScreen = (props: Props) => {
             shadowOpacity: 0.25,
             shadowRadius: 3.84,
             elevation: 5,
+            rowGap: scaleSize(8),
           }}>
           <CustomText text="Option 1" />
           <CustomText text="Option 2" />

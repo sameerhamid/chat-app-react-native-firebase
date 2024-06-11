@@ -28,12 +28,7 @@ const AppNavigation = () => {
         <Stack.Screen name={NavScreenTags.SPLASH_SCREEN} component={Splash} />
         <Stack.Screen name={NavScreenTags.LOGIN_SCREEEN} component={Login} />
         <Stack.Screen name={NavScreenTags.SIGNUP_SCREEN} component={SignUp} />
-        <Stack.Screen
-          options={{headerShown: true}}
-          name={NavScreenTags.HOME_SCREEN}
-          component={HomeScreen}
-        />
-
+        <Stack.Screen name={NavScreenTags.HOME_SCREEN} component={HomeScreen} />
         <Stack.Screen
           name={NavScreenTags.CHAT_SCREEN}
           //@ts-ignore

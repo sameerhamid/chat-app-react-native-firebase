@@ -17,12 +17,20 @@ const styles = (colors: Colors): ChatScreenStyleTypes =>
   StyleSheet.create<ChatScreenStyleTypes>({
     headerContainer: {
       width: screenWidth,
-      height: scaleSize(70),
-      backgroundColor: colors.whiteTransparent,
+      height: scaleSize(80),
       alignItems: 'center',
       flexDirection: 'row',
       paddingHorizontal: scaleSize(10),
       justifyContent: 'space-between',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.4,
+      shadowRadius: 3.84,
+      elevation: 5,
+      borderBottomWidth: scaleSize(0.5),
+      borderColor: colors?.darkSlate,
     },
     leftHeaderCont: {
       alignItems: 'center',

@@ -6,7 +6,7 @@ export const DarkTheme: ThemeModelItem = {
   colors: {
     primary: Colors.WHITE_COLOR,
     background: Colors.BACKGROUND,
-    card: Colors.CARD,
+    card: Colors.TRANSPARENT,
     text: Colors.TEXT,
     border: Colors.BORDER,
     notification: Colors.NOTIFICATION,

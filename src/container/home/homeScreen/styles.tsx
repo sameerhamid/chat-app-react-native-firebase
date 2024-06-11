@@ -12,6 +12,8 @@ export type HomeScreenStyleTypes = {
   profileImage: ImageStyle;
   profileImgeCon: ViewStyle;
   emptyVw: ViewStyle;
+  headerContainer: ViewStyle;
+  settingCont: ViewStyle;
 };
 
 const styles = (colors?: Colors): HomeScreenStyleTypes =>
@@ -65,6 +67,25 @@ const styles = (colors?: Colors): HomeScreenStyleTypes =>
       alignItems: 'center',
       borderRadius: scaleSize(20),
       marginTop: scaleSize(30),
+    },
+    headerContainer: {
+      width: screenWidth,
+      height: scaleSize(70),
+      borderBottomWidth: scaleSize(0.5),
+      borderColor: colors?.darkSlate,
+      paddingHorizontal: scaleSize(10),
+      justifyContent: 'center',
+      alignItems: 'center',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.4,
+      shadowRadius: 3.84,
+      elevation: 5,
+    },
+    settingCont: {
+      marginTop: scaleSize(20),
     },
   });
 
