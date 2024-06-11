@@ -71,7 +71,7 @@ const ChatScreen = (props: Props) => {
     );
   };
   // ============ header===========
-  const renderChatHeader = (): React.ReactElement => {
+  const renderHeader = (): React.ReactElement => {
     return (
       <View style={styles.headerContainer}>
         <View style={styles.leftHeaderCont}>
@@ -104,7 +104,7 @@ const ChatScreen = (props: Props) => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      {renderChatHeader()}
+      {renderHeader()}
       {isOptionModelOpen && showMoreOptionsSheet()}
       <GiftedChat
         textInputProps={{color: 'black'}}

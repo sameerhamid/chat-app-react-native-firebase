@@ -3,21 +3,22 @@ import {Colors} from '../../model/theme/themeModel';
 import {scaleFontSize} from '../../utils/scaleSheetUtils';
 
 export type TextStylesTypes = {
-  bold16: TextStyle;
+  blackbBold16: TextStyle;
   blackBold22: TextStyle;
+  blackBold26: TextStyle;
   whiteBold20: TextStyle;
   black16: TextStyle;
 };
 
 const textStyles = (colors?: Colors): TextStylesTypes =>
   StyleSheet.create<TextStylesTypes>({
-    bold16: {
+    blackbBold16: {
       fontWeight: 'bold',
       fontSize: scaleFontSize(16),
     },
     blackBold22: {
       fontWeight: 'bold',
-      fontSize: scaleFontSize(16),
+      fontSize: scaleFontSize(22),
       color: colors?.black,
     },
     whiteBold20: {
@@ -27,6 +28,11 @@ const textStyles = (colors?: Colors): TextStylesTypes =>
     },
     black16: {
       fontSize: 16,
+      color: colors?.black,
+    },
+    blackBold26: {
+      fontWeight: 'bold',
+      fontSize: scaleFontSize(26),
       color: colors?.black,
     },
   });

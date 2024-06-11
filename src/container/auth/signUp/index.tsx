@@ -45,6 +45,7 @@ const SignUp = () => {
           value={email}
           onChangeText={text => setEmail(text)}
           placeholderTextColor={theme?.colors.placeholderTxt}
+          inputMode="email"
         />
         <TextInput
           placeholder="Enter Mobile"
@@ -52,6 +53,8 @@ const SignUp = () => {
           value={mobile}
           onChangeText={text => setMobile(text)}
           placeholderTextColor={theme?.colors.placeholderTxt}
+          inputMode="numeric"
+          maxLength={10}
         />
         <View style={styles.inputItemContainer}>
           <TextInput

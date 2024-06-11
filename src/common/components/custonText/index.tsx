@@ -30,7 +30,11 @@ const CustomText = (props: typeof defaultProps): React.ReactElement | null => {
       <Text
         onPress={onTextPresss}
         numberOfLines={numberOfLines || 0}
-        style={[styles.bold16, textStyle, txtSize ? {fontSize: txtSize} : {}]}>
+        style={[
+          styles.blackbBold16,
+          textStyle,
+          txtSize ? {fontSize: txtSize} : {},
+        ]}>
         {text ?? ''}
       </Text>
     );

@@ -31,6 +31,7 @@ const Login = () => {
           style={[styles.input, textStyle.black16]}
           value={email}
           onChangeText={text => setEmail(text)}
+          inputMode="email"
           placeholderTextColor={theme?.colors.placeholderTxt}
         />
 

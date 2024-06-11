@@ -78,44 +78,18 @@ const HomeScreen = () => {
   const renderSetting = (): React.ReactElement => {
     return (
       <View style={styles.settingCont}>
-        <View
-          style={{
-            rowGap: scaleSize(10),
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <View
-            style={{
-              width: scaleSize(100),
-              height: scaleSize(100),
-              borderWidth: scaleSize(0.5),
-              borderRadius: scaleSize(100),
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <Image
-              source={Images.PROFILE}
-              style={{width: scaleSize(70), height: scaleSize(70)}}
-            />
+        <View style={styles.profileSettinProfileConatiner}>
+          <View style={styles.settingProfileImgeContainer}>
+            <Image source={Images.PROFILE} style={styles.settingProfileImg} />
           </View>
           <CustomText text={userDetails.name?.toUpperCase()} />
         </View>
         <Spacer height={scaleSize(20)} />
         <View style={{marginHorizontal: scaleSize(20), rowGap: scaleSize(20)}}>
-          <View
-            style={{
-              borderBottomWidth: scaleSize(0.5),
-              height: scaleSize(50),
-              justifyContent: 'center',
-            }}>
+          <View style={styles.settingProfileDetails}>
             <CustomText text={userDetails.email} />
           </View>
-          <View
-            style={{
-              borderBottomWidth: scaleSize(0.5),
-              height: scaleSize(50),
-              justifyContent: 'center',
-            }}>
+          <View style={styles.settingProfileDetails}>
             <CustomText text={userDetails.mobile} />
           </View>
         </View>
@@ -123,11 +97,7 @@ const HomeScreen = () => {
         <Spacer height={scaleSize(50)} />
         <CustomButton
           title="Logout"
-          btnStyle={{
-            width: scaleSize(180),
-            height: scaleSize(60),
-            alignSelf: 'center',
-          }}
+          btnStyle={styles.logoutBtn}
           onPress={handleLogout}
         />
       </View>
@@ -137,7 +107,10 @@ const HomeScreen = () => {
   const renderHeader = (): React.ReactElement => {
     return (
       <View style={styles.headerContainer}>
-        <CustomText text={selectedTabIndex === 0 ? 'Chat' : 'Setting'} />
+        <CustomText
+          text={selectedTabIndex === 0 ? 'Chat' : 'Setting'}
+          textStyle={textStyle.blackBold26}
+        />
       </View>
     );
   };

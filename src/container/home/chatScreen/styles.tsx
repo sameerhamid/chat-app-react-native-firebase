@@ -2,6 +2,7 @@ import {ImageStyle, StyleSheet, ViewStyle} from 'react-native';
 import {Colors} from '../../../common/model/theme/themeModel';
 import {screenWidth} from '../../../common/constants/dimensions';
 import {scaleSize} from '../../../common/utils/scaleSheetUtils';
+import {isIOS} from '../../../common/constants/platforomInfor';
 
 export type ChatScreenStyleTypes = {
   headerContainer: ViewStyle;
@@ -22,14 +23,7 @@ const styles = (colors: Colors): ChatScreenStyleTypes =>
       flexDirection: 'row',
       paddingHorizontal: scaleSize(10),
       justifyContent: 'space-between',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.4,
-      shadowRadius: 3.84,
-      elevation: 5,
-      borderBottomWidth: scaleSize(0.5),
+      borderBottomWidth: scaleSize(isIOS ? 0.5 : 1),
       borderColor: colors?.darkSlate,
     },
     leftHeaderCont: {
